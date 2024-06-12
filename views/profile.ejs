@@ -1,0 +1,52 @@
+<% include ./partials/header %>
+
+    <div class=" profile min-h-screen  bg-zinc-800 text-white pt-1 ">
+        <form id="uploadform" hidden action="/fileupload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image">
+        </form>
+        <div class="flex flex-col items-center mt-20">
+            <div class="relative">
+                <span id="editimage" class="w-8 h-8 absolute bottom-0 right-0 rounded-full
+            flex items-center justify-center bg-zinc-200 cursor-pointer
+            ">
+                    <i class="ri-pencil-fill text-zinc-800"></i>
+                </span>
+                <div class="img h-32 w-32  rounded-full overflow-hidden ">
+                    <img class="h-full w-full object-cover" src="/images/uploads/<%=user.dp%>" alt="profile">
+                </div>
+            </div>
+            <h1 class="font-semibold">
+                <%=user.fullname%>
+            </h1>
+            <h1 class="font-semibold">@<%=user.username%>
+            </h1>
+            <a href="/edit" class="rounded-3xl bg-gray-900 px-4 font-medium mt-1">edit</a>
+            <a href="/add" class="bg-red-600 px-5 py-2 rounded-lg mt-5 hover:bg-red-800 text-base ">Add Post</a>
+        </div>
+
+        <div class="cards flex flex-wrap gap-5 mt-8 px-8 ">
+            <% user?.posts?.forEach(post=> { %>
+                <div class="card w-32 m-5">
+                    <div class=" bg-white w-40 h-32 rounded-lg  overflow-hidden">
+                        <img class="w-full h-full object-cover" src="/images/uploads/<%=post.image%>" alt="anime">
+                    </div>
+                    <h3 class="text-base font-semibold mt-2">
+                        <%=post.title%>
+                    </h3>
+                    <h5 class="text-xs opacity-60 ">
+                        <%=post.description%>
+                    </h5>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#editimage').addEventListener("click", function () {
+            document.querySelector('#uploadform input').click();
+        })
+        document.querySelector('#uploadform input').addEventListener("change", function () {
+            document.querySelector('#uploadform').submit();
+        })
+    </script>
+    <% include ./partials/footer.ejs %>

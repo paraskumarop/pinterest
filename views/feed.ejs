@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs') %>
+
+    <div class="outercontainer flex justify-center">
+        <div class="feespost flex gap-10 flex-wrap m-5 ">
+            <% posts?.forEach(post=> { %>
+                <div class="card w-40 h-32 m-5">
+                    <div class=" bg-white w-full h-full rounded-lg  overflow-hidden">
+                        <img class="w-full h-full object-cover" src="/images/uploads/<%=post.image%>" alt="anime">
+                    </div>
+                    <h3 class="text-base font-semibold mt-2">
+                        <%=post.title%>
+                    </h3>
+                    <h5 class="text-xs opacity-60 ">
+                        <%=post.description%>
+                    </h5>
+                </div>
+                <% }) %>
+            </div>            
+        </div>
+            <%- include('./partials/footer.ejs') %>

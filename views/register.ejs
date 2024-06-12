@@ -1,0 +1,42 @@
+<%- include('./partials/header.ejs') %>
+
+  <div class="main flex justify-center items-center h-[100vh]">
+    <div class="bg-white w-96 rounded-md p-5 shadow-lg "  >   
+      <p class="text-zinc-700 text-3xl leading-tight text-center capitalize tracking-tighter">Welcome to pinterest</p>
+      <form action="/register" method="post">
+        <label for="username" class="block mx-2 mt-2 text-zinc-600 cursor-pointer">Username</label>
+        <input class="border rounded-sm m-2 text-zinc-800" 
+          placeholder="username" 
+          id="username" 
+          name="username" 
+          type="text">
+        <label for="email" class="block mx-2 mt-2 text-zinc-600 cursor-pointer">Email</label>
+        <input class="border rounded-sm m-2 text-zinc-800" 
+          placeholder="bobMarley@gmail.com" 
+          id="email" 
+          name="email" 
+          type="email">
+        <label for="password" class="block mx-2 mt-2 text-zinc-600 cursor-pointer">Password</label>
+        <input class="border rounded-sm m-2 text-zinc-800 tracking-tighter" 
+          placeholder="password" 
+          id="password" 
+          name="password" 
+          type="password">
+        <label for="fullname" class="block mx-2 mt-2 text-zinc-600 cursor-pointer">Full Name</label>
+        <input class="border rounded-sm m-2 text-zinc-800 tracking-tighter" 
+          placeholder="Full Name" 
+          id="fullname" 
+          name="fullname" 
+          type="text">
+          <div class="btn flex justify-center">
+            <button class="block bg-red-600 m-2 w-3/4  rounded-lg py-2
+             hover:bg-red-700 text-white capitalize  leading-tight tracking-tighter" type="submit">Create New Account</button>
+          </div>
+      </form>
+      <div class="flex justify-center">
+        <a href="/login" class="text-sm text-zinc-600 leading-tight
+        hover:text-zinc-900">Already registered,<u>Login here</u></a>
+      </div>
+    </div>
+  </div>
+<%- include('./partials/footer.ejs') %>
